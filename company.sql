@@ -97,9 +97,10 @@ FROM employees
 JOIN policy ON employees.id = policy.employee_id
 JOIN products ON policy.product_id = products.id
 WHERE products.type = 'гражданска отговорност'
-GROUP BY employees.name
+GROUP BY employees.name, employees.id
 HAVING (all_sum) > (
     SELECT AVG(sum)
     FROM policy
+    JOIN employees ON policy.employee_id = policy.id
 );
 
