@@ -83,7 +83,7 @@ JOIN products ON policy.product_id = products.id
 JOIN company ON products.company_id = company.id
 JOIN employees ON policy.employee_id = employees.id
 WHERE products.type = 'автокаско'
-ORDER BY policy.id ASC
+ORDER BY policy.id DESC -- ASC
 LIMIT 100;
 
 SELECT employees.name, salary_payment.bonus
